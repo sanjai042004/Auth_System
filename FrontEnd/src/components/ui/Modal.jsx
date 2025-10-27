@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { ImCancelCircle } from "react-icons/im";
+import { CircleX } from "lucide-react";
 
 export const Modal = ({ isOpen, onClose, title, children }) => {
   return (
@@ -29,7 +29,7 @@ export const Modal = ({ isOpen, onClose, title, children }) => {
                 onClick={onClose}
                 className="absolute top-3 right-3 text-gray-500 hover:text-gray-800 cursor-pointer"
               >
-                <ImCancelCircle size={20} />
+                <CircleX  size={22} />
               </button>
 
               {title && (

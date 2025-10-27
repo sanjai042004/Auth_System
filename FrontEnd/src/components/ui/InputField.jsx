@@ -1,7 +1,6 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
-import { LiaEyeSlashSolid, LiaEyeSolid } from "react-icons/lia";
-
+import {Eye ,EyeOff } from "lucide-react"
 export const InputField = ({
   id,
   label,
@@ -45,12 +44,12 @@ export const InputField = ({
           <button
             type="button"
             onClick={handleToggle}
-            className="absolute right-3 top-2.5 text-gray-500 cursor-pointer hover:text-gray-700"
+            className="absolute right-5 top-3 text-gray-500 cursor-pointer hover:text-gray-700"
           >
             {showPassword ? (
-              <LiaEyeSlashSolid size={20} />
+             <Eye size={18} />
             ) : (
-              <LiaEyeSolid size={20} />
+              <EyeOff size={18} />
             )}
           </button>
         )}
