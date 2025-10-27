@@ -1,4 +1,3 @@
-# Auth_System
 # MERN Authentication System 🔐
 
 A full-stack **Authentication System** built using the **MERN stack (MongoDB, Express, React, Node.js)** with **JWT**, **bcrypt**, and **secure cookies** for token handling.
