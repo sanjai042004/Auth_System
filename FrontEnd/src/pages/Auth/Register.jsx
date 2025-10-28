@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Modal, Button, InputField } from "../../components/ui";
 import { useAuth } from "../../context/AuthContext";
+import { GoogleLoginButton } from "./GoogleLoginButton";
 
 export const Register = ({ isOpen, onClose, switchToLogin }) => {
   const { register } = useAuth();
@@ -33,7 +34,7 @@ export const Register = ({ isOpen, onClose, switchToLogin }) => {
       console.error("Register Error:", error);
       setMessage(
         error.response?.data?.message ||
-        "Something went wrong. Please try again."
+          "Something went wrong. Please try again."
       );
     } finally {
       setLoading(false);
@@ -83,8 +84,9 @@ export const Register = ({ isOpen, onClose, switchToLogin }) => {
 
         {message && (
           <p
-            className={`text-center text-sm transition-colors ${message.startsWith("✅") ? "text-green-600" : "text-red-600"
-              }`}
+            className={`text-center text-sm transition-colors ${
+              message.startsWith("✅") ? "text-green-600" : "text-red-600"
+            }`}
           >
             {message}
           </p>
@@ -104,6 +106,16 @@ export const Register = ({ isOpen, onClose, switchToLogin }) => {
             Login
           </button>
         </p>
+
+        {/* 👇 Google Login Section */}
+        <div className="mt-5 flex flex-col items-center">
+          <div className="flex items-center w-full mb-3">
+            <div className="flex-grow border-t border-gray-300"></div>
+            <span className="mx-2 text-gray-500 text-sm">or</span>
+            <div className="flex-grow border-t border-gray-300"></div>
+          </div>
+          <GoogleLoginButton />
+        </div>
       </form>
     </Modal>
   );

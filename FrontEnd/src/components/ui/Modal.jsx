@@ -29,7 +29,7 @@ export const Modal = ({ isOpen, onClose, title, children }) => {
                 onClick={onClose}
                 className="absolute top-3 right-3 text-gray-500 hover:text-gray-800 cursor-pointer"
               >
-                <CircleX  size={22} />
+                <CircleX size={22} />
               </button>
 
               {title && (

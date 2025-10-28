@@ -4,6 +4,7 @@ import {
   logoutUser,
   refreshToken,
   registerUser,
+  googleLogin as googleLoginService,
 } from "../services/authService";
 
 const AuthContext = createContext();
@@ -32,9 +33,14 @@ export const AuthProvider = ({ children }) => {
     return res;
   };
 
-
   const login = async (formData) => {
     const res = await loginUser(formData);
+    if (res?.user) setUser(res.user);
+    return res;
+  };
+
+  const loginWithGoogle = async (token) => {
+    const res = await googleLoginService(token);
     if (res?.user) setUser(res.user);
     return res;
   };
@@ -48,9 +54,11 @@ export const AuthProvider = ({ children }) => {
     <AuthContext.Provider
       value={{
         user,
+        setUser,
         loading,
         register,
         login,
+        loginWithGoogle,
         logout,
       }}
     >

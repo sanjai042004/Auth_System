@@ -1,4 +1,4 @@
-import { api } from "./api"; 
+import { api } from "./api";
 
 // Register new user
 export const registerUser = async (formData) => {
@@ -11,6 +11,15 @@ export const loginUser = async (formData) => {
   const res = await api.post("/auth/login", formData, { withCredentials: true });
   return res.data;
 };
+
+//google login user
+
+export const googleLogin = async (token) => {
+  const res = await api.post(
+    "/auth/google-login", { token }, { withCredentials: true }
+  );
+  return res.data
+}
 
 // Logout user
 export const logoutUser = async () => {
